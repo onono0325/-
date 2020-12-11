@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>社員登録フォーム</h3>
+	<div>helloworld</div>
+	<div>
+		<a th:href="@{/add}">登録する</a>
+	</div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>名前</th>
+				<th>年齢</th>
+				<th>メールアドレス</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="comment : ${comments}" th:object="${comment}" th:inline="text">
+
+				<td>[[${comment.id}]]</td>
+				<td>[[${comment.name}]]</td>
+				<td>[[${comment.age}]]</td>
+				<td>[[${comment.email}]]</td>
+				<td>
+				  <a th:href="@{/edit/{id}(id=*{id})}">
+				    <button>編集</button>
+				  </a> 
+				  <a th:href="@{/delete/{id}(id=*{id})}">
+				    <button>削除</button>
+				 </a>
+			   </td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

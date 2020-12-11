@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>登録フォーム</title>
+</head>
+<body>
+	<h3>一言コメント</h3>
+	 <form th:action="@{/process}" th:object="${comment}" method="post">
+		<input type="hidden" th:field="*{id}">
+		 
+		<label for="name">名前:</label>
+		<input type="text" th:field="*{name}"> 
+		
+		<label for="age">年齢:</label>
+		<input type="number" th:field="*{age}">
+		
+		<label for="email">メールアドレス:</label>
+		<input type="email" th:field="*{email}">
+		
+		<button>登録</button>
+
+		<!-- <br> <small style="color: red" th:errors="*{content}"></small> -->
+	</form>
+	
+	<a th:href="@{/}">戻る</a>
+</body>
+</html>
